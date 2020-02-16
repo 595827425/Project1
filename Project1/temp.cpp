@@ -13,7 +13,7 @@ void main()
 		printf("%d,%d,",*(&a[i]),*(a + i));//0,0
 		printf("%p,%p,", &a[i], a+i);//006FFE1C,006FFE1C
 	}
-
+	int b;
 	system("pause");
 
 }
