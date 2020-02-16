@@ -14,6 +14,7 @@ void main()
 		printf("%p,%p,", &a[i], a+i);//006FFE1C,006FFE1C
 	}
 	int b;
+	int c;
 	system("pause");
 
 }
