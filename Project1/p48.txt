@@ -1,0 +1,48 @@
+//sprintf
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdlib.h>
+#include<stdio.h>
+
+//---字符串地址不同
+//---通过字符拼接闪瞎你的眼
+//---字符拼接
+//---put 和 get
+//---int printf()返回输出字符个数
+//---int scanf()返回输入的字符个数
+
+int main()
+{
+	//---字符串地址不同
+	char str1[100] = "我是banana";
+	char str2[100] = "我是banana";
+	printf("%p %p", str1, str2);
+
+	//---通过字符拼接闪瞎你的眼
+	char str[100] = {0};//字符串，用于拼接用
+	while (1) 
+	{
+		for (char ch = '0';ch <= '9';ch++) 
+		{
+			getchar();
+			sprintf(str, "color %c%c", ch, 'f');
+			system(str);
+		}
+	}
+
+	//---字符拼接
+	char str3[100] = { 0 };
+	scanf("%s", str3);
+	char str4[100] = { 0 };
+	sprintf(str4, "echo %s", str3);
+	system(str4);
+
+	//---另一种输入输出形式
+	char str[100] = "calc";
+	char str2 = 'A';
+	printf("%s", str);
+	putchar(str2);//只能输出单个字符
+	puts(str);//输出字符串并换行
+	//gets(str);
+
+	return getchar();
+}

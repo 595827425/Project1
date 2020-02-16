@@ -1,0 +1,51 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<stdlib.h>
+#include<Windows.h>
+
+void main()
+{
+	//通过Windows打开，参3.system(...)
+	ShellExecuteA(0, "open","calc",0,0,1);
+	ShellExecuteA(0, "open", "notepad", 0, 0, 0);//隐藏打开
+	ShellExecuteA(0, "open","\"C:\\Program Files\\Tencent\\QQ.exe\"",0,0,1);
+
+	//模拟键盘
+	keybd_event(0x5b, 0, 0, 0);//按下win键
+	keybd_event('M', 0, 0, 0);//按下
+
+	keybd_event('M', 0, 2, 0);//松开
+	keybd_event(0x5b, 0, 2, 0);//松开
+
+	//获取窗口
+	HWND win = FindWindowA("TXGuiFoundation", "QQ2013");
+	//HWND win = FindWindowA("FastStoneScreenCapturePanel", NULL);//NULL匹配所有
+	if (win != NULL) {
+		//(x,y,weight,height,SWP_SHOWWINDOW)
+		SetWindowTextA(win, "36000");//改变指定窗口的标题栏
+		SetWindowPos(win,NULL,0,0,400,400,0);
+	}
+
+	//弹窗
+	MessageBoxA(0,"china","hello",0);
+
+	//窗口的显示隐藏
+	ShowWindow(win, SW_HIDE);//隐藏
+	ShowWindow(win, SW_SHOW);//显示
+
+
+	//获取鼠标的位置
+	POINT pt;//#include<windows.h>
+	pt.x = 0, pt.y = 0;
+	GetCursorPos(&pt);
+	printf("x=%d,y=%d", pt.x, pt.y);
+
+	//鼠标事件
+	mouse_event(MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE, 10000, 1000, 0, 0);
+	mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
+	mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
+	mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+	mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+
+	system("pause");
+}

@@ -1,0 +1,131 @@
+//1，进制转换：2进制转8进制，001 110 101 001 == 1651
+//十进制小数转为二进制：*2取整顺序排列，如0.625 == 0.101
+//十进制整数转为二进制：/2取整逆序排列，如6 == 110
+//原码，原码取反得反码，反码加一得补码，负数在手机，计算机中存的是补码
+//补码取反加一得原码
+
+//2，cmath的相关用法
+
+//3，字符的空间大小
+
+#include<stdio.h>
+#include<cmath>
+#include<math.h>
+
+int main()
+{
+	int a1 = 10;
+	int a2 = 010;//8进制
+	int a3 = 0x10;//16进制
+	int a4 = 101u;//无符号整数
+	int a5 = 15700123785l;//长整数
+	int a6 = 330282199504113459ll;//长长整数
+	printf("\n%d", sizeof(a6));//4
+
+	printf("\n%d", sizeof(char));//1
+	printf("\n%d", sizeof(wchar_t));//2宽字符
+	printf("\n%d", sizeof(int));//4
+	printf("\n%d", sizeof(short int));//2
+	printf("\n%d", sizeof(float));//4
+	printf("\n%d", sizeof(double));//8
+	printf("\n%d", sizeof(long double));//8
+	printf("\n----------------------------");
+	printf("\n%d", sizeof('A'));//1
+	printf("\n%d", sizeof('AB'));//4，超过两个就变4
+	printf("\n%d", sizeof('ABCD'));//4，最多4个英文
+	printf("\n%d", sizeof('我'));//4
+	printf("\n%d", sizeof('我我'));//4，最多2个中文
+	printf("\n%d", sizeof("A"));//2
+	printf("\n%d", sizeof("我"));//3,其实是多了\0结尾
+	printf("\n%d", sizeof("AAAA"));//5
+	printf("\n%d", sizeof(10));//4
+	printf("\n%d", sizeof(10.5));//8,默认double
+	printf("\n%d", sizeof(10.123456f));//4，最多小数6位
+	printf("\n----------------------------");
+	printf("\nmax=%f", 10.999999f);
+	float aa = 12345678.1234567f;//12345678.0
+	float f1 = 19.345e-2;//0.19345
+	printf("\ntext=%f", f1);
+	
+	printf("\nmax=%d", INT_MAX);//这个如果+1就会溢出
+	unsigned short numusmax = USHRT_MAX;
+	printf("\nmax=%d", SHRT_MAX);
+
+	//标准int定义
+	signed int num = 10;
+	unsigned int num2 = 13;
+
+	unsigned char chnum1 = 255;//2^8,,11111111
+	unsigned char chnum2 = -1;//-1的实际值为255,,11111111
+	if (chnum1 == chnum2) {
+		printf("\n%d", chnum2);
+		printf("\n%d", chnum1);
+	}
+
+	printf("\n----------------------------");
+	unsigned int n3 = 4294967295u;
+	printf("\n%d", n3);//-1
+	printf("\n%u", n3);
+
+	printf("\n----------------------------");
+	// printf("\n%f,%.100f", FLT_MAX);//-1
+	char ch3 = 'A';
+	wchar_t wch = L'我';
+	printf("\n%d", sizeof(ch3));
+	printf("\n%d", sizeof(wch));
+
+	//字符串的字节
+	char strp[10] = "我";
+	printf("\n%c%c", strp[0], strp[1]);
+
+	printf("\n----------------------------");
+	char ch4 = '1';
+	printf("\n%d", ch4);
+	printf("\n%c", ch4);
+	printf("\n%d", ch4 + 1);
+	printf("\n%c", ch4+1);
+	//system("color 4f");
+
+	-5%3 == -2;
+	5%-3 == 2;
+	int c = 3 > 2 ? 2:3;
+
+	printf("\n%d");
+	printf("\n%10d%d", 10,12);//右对齐
+	printf("\n%-10d%d", 10,12);//左对齐
+	printf("\n%010d%d", 10, 12);//左对齐用0填补
+
+	//--------遍历字符37-100
+	for (int i=37; i <= 100; i++) {
+		printf("%c",char(i));
+	}
+	printf("\n-----------\n");
+
+	for (char i = 37; i <= 100; i++) {
+		putchar(i);
+	}
+
+	//--------盗窃
+	double money = 0;
+	scanf("%lf", &money);
+	printf("\n%f元", money);
+	double res = (int)(money*10 + 0.6) / 10.0;//盗窃小数第二位小于4的值
+	printf("\n%f元", res);
+	printf("\n可以盗窃%f元", money - res);
+	system("pause");
+
+	//--------输出一个整数的2进制，8进制和16进制
+	int num = 0;
+	scanf("%d", &num);
+	char str[30] = { 0 };
+	_itoa(num, str, 2);
+	printf("\n%s", str);
+	_itoa(num, str, 8);
+	printf("\n%s", str);
+	_itoa(num, str, 16);
+	printf("\n%s", str);
+
+	return getchar();
+}
+
+

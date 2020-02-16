@@ -1,0 +1,8 @@
+#include<stdlib.h>
+
+int main()
+{
+	system("echo banana");
+	system("pause");
+	return 1;
+}

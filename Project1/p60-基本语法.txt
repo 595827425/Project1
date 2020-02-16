@@ -1,0 +1,144 @@
+
+//-------------基础知识大全
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+	//include<stdbool.h>
+	bool bl = true;
+	int N;
+	char cmd[100];
+	scanf("%d%s", &N, &cmd);
+	char strcmd[200] = { 0 };
+	sprintf(strcmd,"echo for /l %%i in (1,1,%d) do %s",N,cmd);
+	system(strcmd);
+	system("pause");
+
+
+	//占据内存
+	malloc(1024 * 1024 * 50);
+
+	//两个符号定向增加，一个符号重写
+	system("tasklist >> C:\\1.txt");
+	system("tasklist > C:\\1.txt");
+
+	//判断字符串是否存在
+	char str[4096];
+	scanf("%4096s", str);
+	//#include<string.h>
+	char *p = strstr(str,"QQ.exe");
+	if (p != NULL) {
+		printf("存在");
+	}
+
+
+	enum jun
+	{
+		司令 = 10,
+		军长 = 9
+	};
+	enum jun j = 司令;
+	司令 > 军长;
+
+	int num = 1;
+	switch (num) 
+	{
+	case 1:
+		printf("a");
+		break;
+	case 2:
+		printf("b");
+		break;
+	default:
+		printf("c");
+		break;
+	}
+
+	//dowhile
+	int i = 5;
+	do {
+		system("calc");
+		i--;
+	} 
+	while (i);
+
+	return getchar();
+
+
+	//变更字符输入的结束符，默认结束符是回车	
+	//%[]里为正则，%[1]的话，则非1数字都为结束符
+	//%[^A-Z],存在A-Z就结束
+	char str[100] = { 0 };
+	scanf("%[^A-Z]", str);//检索其他字符，不可以存在A-Z
+	scanf("%[A-Z]", str);//检索大写字母输入
+
+	printf("\n str=%s", str);
+
+
+
+	//宽字符
+	L"我";
+	printf("%d", sizeof(L"我"));//4
+	TEXT"我";
+	MessageBox(0, TEXT"我", TEXT"我", 0);
+	return getchar();
+
+
+	//goto
+AA:	
+	if (i < 5) 
+	{
+		i++;
+		printf("%d\n",i);
+		goto AA;
+	}
+
+
+	system("pause");
+	return getchar();
+
+
+
+	//函数申明
+	//void main()
+	//{
+	//	int add(int a, int b);//声明的方法1
+	//	int add(int, int);//声明的方法2
+	//
+	//	int i = add(1, 2);
+	//	printf("%d\n",i);
+	//
+	//	system("pause");
+	//}
+	//
+	//int add(int a, int b)
+	//{
+	//	return a + b;
+	//}
+
+
+	//DLL的调用
+	if (false) {
+		HMODULE hmod = LoadLibrary("C:\\Users\\595827425\\Desktop\\dlltest.dll");
+		int(*p1)(int a, int b) = (int(*)(int a, int b)) GetProcAddress(hmod, "fn_a2");
+		int a = p1(1, 3);
+
+		FreeLibrary(hmod);
+	}
+	if (false) {
+		typedef void(*p2)();
+		typedef int(*p3)(int, int);
+		HINSTANCE hmod;
+		hmod = LoadLibrary("C:\\Users\\595827425\\Desktop\\dlltest.dll");
+		p2 PPP;
+		p3 PPP3;
+		PPP = (p2)GetProcAddress(hmod, "fn_a1");
+		PPP3 = (p3)GetProcAddress(hmod, "fn_a2");
+		int a = PPP3(1, 2);
+
+		FreeLibrary(hmod);
+	}
+
+}

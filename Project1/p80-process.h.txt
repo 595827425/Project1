@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<stdlib.h>
+#include<process.h>
+#include<windows.h>
+
+void fn_run(void *p) {
+	//void *p代表一个空指针
+	for (int i=0;i <= 5;i++) {
+		Sleep(1000);//#include<windows.h>
+		printf("%d",i);
+	}
+
+}
+
+void main()
+{
+	_beginthread(fn_run, 0, NULL);
+	system("pause");
+}

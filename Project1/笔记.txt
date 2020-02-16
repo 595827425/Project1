@@ -1,0 +1,94 @@
+
+-- 32个关键字：
+auto(自动分配自动释放)	break	case	char	const
+continue	default	do	double	else
+enum	extern	float	for	goto
+if	int	long	register	return
+short	signed	sizeof	static	struct
+switch	typedef	unsigned	union	void
+volatile	while
+
+
+-- 9种控制语句：
+if()~else~
+for()~
+while()~
+do~while()
+continue
+break
+switch
+goto
+return
+
+-- 编译过程：
+预编译：Gcc -E -o a.e a.c，把c预编译为e，加载所有#开头的，包括#if #endif #progma
+汇编：Gcc -s 汇编
+编译：Gcc -c 转为2进制指令
+链接：Gcc 生成exe
+代码在.c与.h头文件中写好后，编译成obj，打包调用后生成exe
+
+
+-- C语言的34种预算符：
+算术运算符：+ - * / % ++ --
+关系运算符：< <= == > >= !=
+逻辑运算符：! && ||
+位运算符： << >> ~ | ^ &  (^异或，11得0,10得1；~取反)
+赋值运算符： = 及其扩展
+条件运算符：? :
+逗号运算符：,
+指针运算符：* &
+求字节数：sizeof
+强制类型转换：(类型)
+分量运算符：. ->
+下标运算符：[]
+其它：() -
+
+
+-- 变量声明：
+1，建立变量符号表
+2，分配内存空间
+3，取值范围
+4，操作方式
+
+-- 转义字符：
+\n换行
+\v垂直制表
+\r回车
+\a响铃
+\t水平制表
+\b退格
+\f换页
+\ddd3位8进制数代表的字符
+\xhh2位16进制代表的字符
+
+
+-- 格式字符：
+%d十进制整数
+%o无符号的八进制整数
+%x无符号的十六进制整数
+%u无符号的十进制整数
+%c字符形式输出单个字符
+%s字符串
+%f单，双精度实数
+%e标准指数形式输出单，双精度实数
+%g输出宽度较小的实数
+* 跳过输入的字符
+I(字母)用于输入长整型和双精度实数数据
+
+
+运算符优先级顺序
+
+
+
+Debug文件夹(*.exe,*.ilk,*.obj,*.pch,*.pdb,*.idb,*,pdb),*.cpp,*.dsp,*.ncb,*.plg
+*.exe:是生成的可执行文件
+*.ilk:当选定渐增型编译连接时，连接器自动生成ILK文件，记录连接信息
+*.obj:是目标文件,源程序编译后的产物
+*.pch:全称是PreCompiled Header，就是预先编译好的头文件
+*.idb:文件保存的信息,使编译器在重新编译的时候只重编译最新改动过的函数和只对最新类定义改动过的源文件进行重编译，以提高编译速度
+*.pdb:全称是Program DataBase，即程序数据库文件，用来记录调试信息
+*.dsp:(全称是Developer Studio Project)也是一个配置文件
+*.ncb:(全称No Compile Browser)的缩写，其中存放了供ClassView、WizardBar和Component Gallery使用的信息，由VC开发环境自动生成
+*.plg:实际上是一个超文本文件，可以用Internet Explorer打开，记录了Build的过程
+*.cpp:就是C++源代码文件. 
+

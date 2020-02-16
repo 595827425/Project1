@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<stdlib.h>
+#include<windows.h>
+
+
+void main()
+{
+	//DLLµÄµ÷ÓÃ
+	if (false) {
+		HMODULE hmod = LoadLibrary("C:\\Users\\595827425\\Desktop\\dlltest.dll");
+		int(*p1)(int a, int b) = (int(*)(int a, int b)) GetProcAddress(hmod, "fn_a2");
+		int a = p1(1, 3);
+
+		FreeLibrary(hmod);
+	}
+	if (false) {
+		typedef void(*p2)();
+		typedef int(*p3)(int, int);
+		HINSTANCE hmod;
+		hmod = LoadLibrary("C:\\Users\\595827425\\Desktop\\dlltest.dll");
+		p2 PPP;
+		p3 PPP3;
+		PPP = (p2)GetProcAddress(hmod, "fn_a1");
+		PPP3 = (p3)GetProcAddress(hmod, "fn_a2");
+		int a = PPP3(1, 2);
+
+		FreeLibrary(hmod);
+	}
+
+	system("pause");
+
+}

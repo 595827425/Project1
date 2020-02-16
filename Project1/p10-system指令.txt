@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS //宏定义关闭编译器的安全检查功能
+#include<stdlib.h>
+#include<stdio.h>
+#include<Windows.h>
+
+int num = 100;//全局声明
+
+int main()
+{
+
+	system("pause");
+	system("tasklist & pause");
+
+	system("\"C:\\ProgramFiles(x86)\\QQ\\QQ.exe\"");//打开进程
+
+	system("taskkill /f /im QQ.exe");//关闭进程
+
+	system("notepad");//下面代码要关闭notepad后才能执行，异步
+	system("start notepad");//下面代码同步执行
+
+
+}
+

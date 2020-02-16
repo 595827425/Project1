@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS //宏定义关闭编译器的安全检查功能
+
+#include<stdlib.h>
+#include<stdio.h>
+#include "test.txt"
+
+int main()
+{
+	system("echo banana");
+	printf("aaa\n");
+	printf("%daa\n", 11);
+	system("pause");
+	return 1;
+}
+
+----------------------------------------------
+
+#define _CRT_SECURE_NO_WARNINGS //宏定义关闭编译器的安全检查功能
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	int num = 0;
+	while (1) {
+		system("echo num:");
+		scanf("%d", &num);
+		printf("you %d\n", num);
+	}	
+	return 1;
+}
+
+----------------------------------------------
+
+#include<stdlib.h>
+#define _ system
+#define __ (
+
+int main __ )
+{
+	_("pause");
+	return 1;
+}
+
+
+
+
